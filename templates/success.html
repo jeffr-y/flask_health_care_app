@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+     <title>Submission Successful</title>
+     <!--LINK TO EXTERNAL CSS FILE -->
+     <link rel="stylesheet" href ="{{url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container success">
+
+            <h2>Data Stored Successfully!</h2>
+            <p>Your financial information has been saved.</p>
+
+            <h3>Submitted Details</h3>
+
+            <div class="error">{{ error }}</div>
+
+            <p><strong>Age:</strong> {{ user.age}}</p>
+            <p><strong>Gender:</strong> {{ user.gender}}</p>
+            <p><strong>Total Income:</strong> {{ user.total_income}}</p>
+
+            <h3>Expenses</h3>
+            <ul>
+                {% for category, info in user.expenses.items() %}
+                    <li>
+                        <strong>{{category.replace('_', '').title() }}:</strong>
+                        {% if info.selected %}
+                            ${{ info.amount}}
+                        {% else %}
+                            Not Selected
+                        {% endif %}
+                    </li>
+                {% endfor %}
+            </ul>
+
+            <br>
+            <a href="/" style="text-decoration:none;">
+                <button>Submit Another Response</button>
+            </a>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,19 @@
+
+body {
+    background-color: #f0f8ff;
+    font-family: Arial, sans-serif;
+}
+
+h2 {
+    color: #333;
+}
+
+input, select, button {
+    padding: 5px;
+    margin: 5px 0;
+}
+
+form {
+    max-width: 400px;
+    margin: auto;
+}

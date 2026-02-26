@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+     <title>User Finance Form</title>
+     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+
+    {% if error %}
+        <div class="error">{{ error }}</div>
+    {% endif %}
+
+    <h2>User Finance Form</h2>
+
+    <form method="POST">
+
+        <label>Age:</label>
+        <input type="number" name="age" required>
+
+        <label>Gender:</label>
+        <select name="gender" required>
+            <option value="">-- Select --</option>
+            <option>Male</option>
+            <option>Female</option>
+            <option>Other</option>
+        </select>
+
+        <label>Total Income:</label>
+        <input type="number" name="income" required>
+
+        <h3>Expense Categories</h3>
+
+        <input type="checkbox" name="utilities_checkbox"> Utilities
+        <input type="number" name="utilities_amount" placeholder="Amount"><br>
+
+        <input type="checkbox" name="entertainment_checkbox"> Entertainment
+        <input type="number" name="entertainment_amount" placeholder="Amount"><br>
+
+        <input type="checkbox" name="school_checkbox"> School Fees
+        <input type="number" name="school_amount" placeholder="Amount"><br>
+
+        <input type="checkbox" name="shopping_checkbox"> Shopping
+        <input type="number" name="shopping_amount" placeholder="Amount"><br>
+
+        <input type="checkbox" name="healthcare_checkbox"> Healthcare
+        <input type="number" name="healthcare_amount" placeholder="Amount"><br><br>
+
+        <button type="submit">Submit</button>
+
+    </form>
+
+</div>
+
+</body>
+</html>
