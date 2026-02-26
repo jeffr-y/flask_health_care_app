@@ -1,5 +1,4 @@
-# Create a Python Class Named user
-# This Class mirrors the structure of the data stored in MongoDB.
+
 
 class User:
     def __init__(self, age, gender, total_income, expenses):
