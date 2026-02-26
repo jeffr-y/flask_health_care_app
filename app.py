@@ -8,6 +8,9 @@ app = Flask(__name__)
 
 # --- MongoDB Connection (Use Environment Variable in Production---
 mongo_uri = os.environ.get("MONGO_URI")
+if not mongo_uri:
+    raise ValueError("MONGO_URI environment variable is missing!")
+
 client = MongoClient(mongo_uri)
 db = client["flask_health_care_app"]
 users_collection = db["users"]
