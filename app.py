@@ -2,17 +2,19 @@
 
 from flask import Flask, render_template, request
 from pymongo import MongoClient
+from dotenv import load_dotenv
 import os
 
 app = Flask(__name__)
 
+load_dotenv()     # loads .env automatically
 
 # --- MongoDB Connection (Use Environment Variable in Production---
-mongo_uri = os.environ.get("MONGO_URI")
+mongo_uri = os.getenv("MONGO_URI")
 if not mongo_uri:
     raise ValueError("MONGO_URI.environment variable is missing!")
 
-print("MONGO_URI VALUE:", mongo_uri)
+print("MONGO_URI:", mongo_uri)
 
 client = MongoClient(mongo_uri)
 db = client["flask_health_care_app"]
